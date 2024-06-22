@@ -20,7 +20,7 @@
     </content>
     <orderEntry type="jdk" jdkName="DV Jobs" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="bulma" level="application" />
+    <orderEntry type="library" exported="" name="bulma" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

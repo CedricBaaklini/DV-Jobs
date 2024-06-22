@@ -5,14 +5,23 @@
 
 	{% if userprofile.is_employer %}
 		<h2 class="subtitle">Jobs</h2>
+
 		{% for job in request.user.jobs.all %}
 			<div class="job">
-				{{ job.title }}
+				<a href="{% url 'view_dashboard_job' job.id %}">{{ job.title }}</a>
 			</div>
 		{% empty %}
 			<p>You don't have any jobs yet...</p>
 		{% endfor %}
 	{% else %}
-		<p>Is jobseeker</p>
+		<h2 class="subtitle">Applications</h2>
+
+		{% for application in request.user.applications.all %}
+			<div class="application">
+				<a href="{% url 'view_application' application_id %}">{{ application.job.title }}</a>
+			</div>
+		{% empty %}
+			<p>You haven't applied for any jobs yet...</p>
+		{% endfor %}
 	{% endif %}
 {% endblock %}

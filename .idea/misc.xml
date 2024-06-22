@@ -47,7 +47,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" project-jdk-name="DV Jobs" project-jdk-type="Python SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="TypeScriptCompiler">
