@@ -2,12 +2,13 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import AddJobForm, ApplicationForm
 from .models import Job
+from apps.notification.utillities import create_notification
 
 
 def job_detail(request, job_id):
     job = Job.objects.get(pk = job_id)
 
-    return render(request, 'job/job_detail.html', { 'job': job })
+    return render(request, 'job/job_detail.html', {'job': job})
 
 
 @login_required
@@ -22,6 +23,8 @@ def apply_for_job(request, job_id):
             application.job = job
             application.created_by = request.user
             application.save()
+
+            create_notification(request, job.created_by, 'application', extra_id = application.id)
 
             return redirect('dashboard')
         else:
@@ -44,4 +47,4 @@ def add_job(request):
     else:
         form = AddJobForm()
 
-    return render(request, 'job/add_job.html', { 'form': form })
+    return render(request, 'job/add_job.html', {'form': form})
