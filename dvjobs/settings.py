@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.job',
     'apps.userprofile',
+    'apps.notification',
 ]
 
 MIDDLEWARE = [
